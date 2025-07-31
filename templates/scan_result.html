@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scan Results</title>
+</head>
+<body>
+    <h2>Extracted Skills</h2>
+    {% if skills %}
+        <ul>
+            {% for skill in skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <button onclick="window.location.href='{{ url_for('index') }}'">
+        Go to Home Page
+    </button>
+        <p>No technical skills found</p>
+    {% endif %}
+</body>
+</html>

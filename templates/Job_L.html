@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% block title %}Job Portal | Job Listing{% endblock %}
+{% block content %}
+<head>
+    <style>
+        /* General Styles */
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1E3A8A;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 15px;
+}
+.navbar a:hover {
+    color: #ff4081;
+}
+
+/* Buttons */
+button, .apply-btn {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+button:hover, .apply-btn:hover {
+    background-color: #e6006b;
+}
+
+/* Job Cards */
+.job-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Grid Layout */
+.job-listing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Search & Filter Section */
+.search-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+.search-filter input, .search-filter select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Ensure CSS changes are applied */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.card-body {
+    background-color: #ffffff;
+    padding: 20px;
+}
+.btn-primary {
+    background-color: #1E3A8A;
+    border-color: #1E3A8A;
+}
+.btn-primary:hover {
+    background-color: #162d6f;
+    border-color: #162d6f;
+}
+        button, .apply-btn {
+    background-color: #ff4081 !important;
+}
+
+    </style>
+</head>
+<div class="container mt-4">
+    <!-- Filters -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <select id="sortBy" class="form-select">
+                <option value="">Sort By</option>
+                <option value="date">Date</option>
+                <option value="salary">Salary</option>
+                <option value="company_score">Company Score</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select id="orderBy" class="form-select">
+                <option value="desc">Descending</option>
+                <option value="asc">Ascending</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <input type="text" id="searchJob" class="form-control" placeholder="Search by job title">
+        </div>
+        <div class="col-md-2">
+            <button onclick="applyFilters()" class="btn btn-primary w-100">Apply Filters</button>
+        </div>
+    </div>
+
+    <!-- Job Cards Container -->
+    <div class="row" id="jobCards">
+        {% for job in jobs %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100" style="cursor: pointer;" onclick="viewJobDetails({{ job.id }})">
+                <div class="card-body">
+                    <h5 class="card-title"><center>{{ job.job_title }}</center></h5>
+                    <p class="card-text">
+                        <strong>Company:</strong> {{ job.company }}<br>
+                        <strong>Location:</strong> {{ job.location }}<br>
+                        <strong>Salary:</strong> {{ job.salary }}<br>
+                        <strong>Posted:</strong> {{ job.date.strftime('%Y-%m-%d') }}<br>
+                        <strong>Company Score:</strong> {{ job.company_score }}
+                    </p>
+                    <div class="d-flex justify-content-between mt-3">
+                        {% if role == 'admin' %}
+                            <button onclick="editJob(event, {{ job.id }})" class="btn btn-warning">Edit</button>
+                            <button onclick="deleteJob(event, {{ job.id }})" class="btn btn-danger">Delete</button>
+                        {% elif role == 'user' %}
+                            <button onclick="applyForJob(event, {{ job.id }})" class="btn btn-success">Apply</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+// Retrieve role from session storage
+const role = sessionStorage.getItem('role') || '{{ role }}'; // Fallback to backend role if not set in session storage
+
+// View Job Details
+function viewJobDetails(id) {
+    window.location.href = `/job-details?id=${id}`;
+}
+
+// Apply Filters
+function applyFilters() {
+    const sortBy = document.getElementById('sortBy').value;
+    const order = document.getElementById('orderBy').value;
+    const jobTitle = document.getElementById('searchJob').value;
+
+    fetch(`/jobs?sort_by=${sortBy}&order=${order}&job_title=${jobTitle}`)
+        .then(response => response.json())
+        .then(jobs => {
+            const jobCards = document.getElementById('jobCards');
+            jobCards.innerHTML = '';
+            
+            jobs.forEach(job => {
+                const card = createJobCard(job);
+                jobCards.appendChild(card);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Create Job Card
+function createJobCard(job) {
+    const col = document.createElement('div');
+    col.className = 'col-md-4 mb-4';
+
+    let buttonsHtml = '';
+    if (role === 'admin') {
+        buttonsHtml = `
+            <button onclick="editJob(event, ${job.id})" class="btn btn-warning">Edit</button>
+            <button onclick="deleteJob(event, ${job.id})" class="btn btn-danger">Delete</button>
+        `;
+    } else if (role === 'user') {
+        buttonsHtml = `
+            <button onclick="applyForJob(event, ${job.id})" class="btn btn-success">Apply</button>
+        `;
+    }
+
+    col.innerHTML = `
+        <div class="card h-100" style="cursor: pointer;" onclick="viewJobDetails(${job.id})">
+            <div class="card-body">
+                <h5 class="card-title"><center>${job.job_title}</center></h5>
+                <p class="card-text">
+                    <strong>Company:</strong> ${job.company}<br>
+                    <strong>Location:</strong> ${job.location}<br>
+                    <strong>Salary:</strong> ${job.salary}<br>
+                    <strong>Posted:</strong> ${new Date(job.date).toLocaleDateString()}<br>
+                    <strong>Company Score:</strong> ${job.company_score}
+                </p>
+                <div class="d-flex justify-content-between mt-3">
+                    ${buttonsHtml}
+                </div>
+            </div>
+        </div>
+    `;
+
+    return col;
+}
+
+// Edit Job
+function editJob(event, id) {
+    event.stopPropagation(); // Prevent card click
+    window.location.href = `/update/${id}`;
+}
+
+// Delete Job
+function deleteJob(event, id) {
+    event.stopPropagation(); // Prevent card click
+    if (confirm('Are you sure you want to delete this job?')) {
+        fetch(`/delete/${id}`, { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            location.reload();
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+// Apply for Job
+function applyForJob(event, id) {
+    event.stopPropagation(); // Prevent card click
+    fetch(`/apply_job/${id}`, { method: 'POST' })
+    .then(response => {
+        if (response.ok) {
+            window.location.href = `/Job_L?id=${id}`;
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+</script>
+{% endblock %}
+
+function applyForJob(event, id) {
+    event.stopPropagation(); // Prevent card click
+
+    // Retrieve the CSRF token from the meta tag
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    fetch(`/apply_job/${id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken // Include the CSRF token in the headers
+        },
+        credentials: 'same-origin' // Include cookies in the request
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Display the message from the server response
+        alert(data.message);
+    })
+    .catch(error => console.error('Error:', error));
+}

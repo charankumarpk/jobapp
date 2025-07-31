@@ -1,0 +1,111 @@
+/* Enhanced Nice Select CSS */
+.nice-select {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  height: 44px;
+  line-height: 42px;
+  padding: 0 16px;
+  position: relative;
+  text-align: left;
+  transition: all 0.25s ease-in-out;
+  user-select: none;
+  width: auto;
+}
+
+.nice-select:hover {
+  border-color: #ccc;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.nice-select:focus, .nice-select.open {
+  border-color: #999;
+  outline: none;
+}
+
+.nice-select:after {
+  border-bottom: 2px solid #666;
+  border-right: 2px solid #666;
+  content: '';
+  display: block;
+  height: 6px;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: rotate(45deg) translateY(-50%);
+  transition: transform 0.25s ease-in-out;
+  width: 6px;
+}
+
+.nice-select.open:after {
+  transform: rotate(-135deg) translateY(50%);
+}
+
+.nice-select .list {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 4px;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: scale(0.9) translateY(-10px);
+  transition: all 0.25s ease-in-out;
+  z-index: 1000;
+  min-width: 100%;
+}
+
+.nice-select.open .list {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateY(0);
+}
+
+.nice-select .option {
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 40px;
+  padding: 10px 16px;
+  transition: background 0.2s ease-in-out;
+}
+
+.nice-select .option:hover,
+.nice-select .option.focus,
+.nice-select .option.selected.focus {
+  background-color: #f4f4f4;
+}
+
+.nice-select .option.selected {
+  font-weight: bold;
+}
+
+.nice-select .option.disabled {
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Accessibility & Mobile Optimization */
+@media (max-width: 768px) {
+  .nice-select {
+    width: 100%;
+  }
+  .nice-select .list {
+    min-width: 100%;
+  }
+}
+
+.no-csspointerevents .nice-select .list {
+  display: none;
+}
+
+.no-csspointerevents .nice-select.open .list {
+  display: block;
+}

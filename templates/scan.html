@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Resume Scanner</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #1E3A8A;
+        }
+
+        /* Form Styling */
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #e6006b;
+        }
+
+        /* Extracted Skills List */
+        ul {
+    list-style-type: disc; /* Enables bullet points */
+    padding-left: 30px; /* Adds indentation for bullets */
+    text-align: left; /* Aligns text properly */
+    display: inline-block; /* Prevents full-width stretching */
+}
+
+ul li {
+    background: none; /* Removes background */
+    box-shadow: none; /* Removes box styling */
+    padding: 5px 0;
+    margin: 2px 0;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Upload Your Resume</h1>
+
+    <form action="{{ url_for('scan_resume') }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">  <!-- CSRF Token -->
+        <input type="file" name="file" required>
+        <button type="submit">Scan Resume</button>
+    </form>
+
+    {% if skills is not none %}  <!-- Show skills if available -->
+        <h2>Extracted Skills</h2>
+        {% if skills %}
+            <ul>
+                {% for skill in skills %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No skills found.</p>
+        {% endif %}
+    {% endif %}
+<br>
+    <!-- Always visible "Go to Home Page" button -->
+    <button onclick="window.location.href='{{ url_for('index') }}'">
+        Go to Home Page
+    </button>
+</body>
+</html>

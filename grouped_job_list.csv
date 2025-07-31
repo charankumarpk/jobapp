@@ -1,0 +1,120 @@
+Company,Company Score,Job Title,Location,Date,Salary
+ViewSoft,4.8,Software Engineer,"Manassas, VA",8d,$68K - $94K
+Workiva,4.3,Software Support Engineer,Remote,2d,$61K - $104K
+"Garmin International, Inc.",3.9,C# Software Engineer,"Cary, NC",2d,$95K - $118K
+Snapchat,3.5,"Software Engineer, Fullstack, 1+ Years of Experience","Los Angeles, CA",2d,$97K - $145K
+Vitesco Technologies Group AG,3.1,Software Engineer,"Seguin, TX",2d,$85K - $108K
+Spotify,3.9,Backend Engineer II,"New York, NY",1d,$123K - $175K
+Infor,4,Associate Software Engineer,"Alpharetta, GA",7d,$77K - $94K
+Amerisoft Corporation,5,Software Developers,"Farmington Hills, MI",30d+,$71K - $100K
+WHOOP,3.3,"Software Engineer II (Backend, Health)","Boston, MA",10d,$94K - $148K
+PFF,4.2,Sr. Software Engineer,Remote,1d,$147K - $189K
+Salesforce,4.1,MTS Software Engineer,"San Francisco, CA",5d,$90K - $113K
+"HealthMine Services, Inc.",3.8,Software Engineer,Remote,1d,$54K - $79K
+Honeywell,4.1,Software Engineer I,"Aguadilla, PR",2d,$91K - $135K
+Legrand AV,3.7,Software Engineer,Minneapolis-Saint Paul,2d,$70K - $135K
+Athenahealth,4,"Software Engineer, athenaCollector – RCM Rules","Boston, MA",2d,$192K - $288K
+Amex,4.1,Java Engineer,"Plantation, FL",6d,$100K - $125K
+SOFT LABS NA,5,Entry Level to Senior Level Software Developers,"Northborough, MA",30d+,$85K - $127K
+Snapchat,3.5,"Software Engineer, C++","Los Angeles, CA",2d,$69K - $109K
+Hertz,3.2,Software Engineer,"Seattle, WA",2d,$124K - $234K
+Megaport,3.4,Frontend Software Engineer,"Bangalore, India",2d,$84K - $133K
+"7-Eleven, Inc.",3.4,Software Engineer,"Irving, TX",1d,$85K - $150K
+"Summit Technologies, Inc.",4.2,Software Engineer,"Springfield, MA",10d,$48K - $89K
+Adobe,2.9,Software Development Engineer,"San Jose, CA",10d,$66K - $97K
+The MITRE Corporation,4,Associate Software Engineer,"Bedford, MA",2d,$108K - $199K
+Boston Children's Hospital,4.1,Software Engineer - HA (Hybrid),"Boston, MA",30d+,$102K - $173K
+Amex,3.2,Engineer - React/JavaScript,"Sunrise, FL",5d,$124K - $142K
+Ahold Delhaize USA,4,Software Engineer - Martech,"Carlisle, PA",2d,$94K - $133K
+Artera Technologies,4.2,Software Engineers,"Annapolis Junction, MD",6d,$70K - $116K
+Adobe,4.3,Software Engineer,"Lehi, UT",13d,$142K - $178K
+Workiva,3.5,Senior Software Engineer,Remote,3d,$87K - $135K
+Samsung Electronics,3.4,Software Engineer,"Mountain View, CA",2d,$77K - $182K
+IPG Photonics,3.7,Software Engineer,"Oxford, MA",4d,$101K - $144K
+Crafty,3.3,Software Engineer,"Chicago, IL",2d,$101K - $168K
+"Crunchyroll, LLC",4.2,"Software Engineer III, Payments","San Francisco, CA",13d,$74K - $118K
+LEGO,3.9,Backend Software Engineer,"Irvine, CA",9d,$100K - $200K
+Principal Financial Group,4.1,Experienced Software Engineer,"Des Moines, IA",2d,$51K - $78K
+INTEL,3.4,Security Software Engineer,"Phoenix, AZ",22d,$71K - $237K
+Hasbro,4.4,"Software Engineer, Unreal Engine","Renton, WA",18d,$87K - $116K
+Software Engineering Institute,4.2,Software Engineer,"Pittsburgh, PA",30d+,$116K - $184K
+University of Dayton,4.4,Associate Software Engineer,"Dayton, OH",2d,$75K - $103K
+MIT,3.7,Software Developer,"Cambridge, MA",17d,$155K - $221K
+Amazon.com Services LLC,5,Software Dev Engineer - Computer Science,"Seattle, WA",2d,$112K - $165K
+,3.9,,,10d,
+,4.5,,,4d,
+,3.9,,,2d,
+,2,,,1d,
+,3.5,,,30d+,
+,4.1,,,18d,
+,3.8,,,2d,
+,4.3,,,2d,
+,4.1,,,3d,
+,5,,,30d+,
+,3,,,4d,
+,3.5,,,2d,
+,3.3,,,1d,
+,3.7,,,3d,
+,3.8,,,1d,
+,3.6,,,4d,
+,3.6,,,10d,
+,4,,,30d+,
+,3.8,,,30d+,
+,3.7,,,2d,
+,4.2,,,10d,
+,4.2,,,10d,
+,3.8,,,8d,
+,4.3,,,6d,
+,4.3,,,3d,
+,3.7,,,2d,
+,3.1,,,1d,
+,3.5,,,16d,
+,3.7,,,30d+,
+,3.8,,,20d,
+,4.1,,,30d+,
+,3.4,,,30d+,
+,3.2,,,25d,
+,3.8,,,2d,
+,4,,,12d,
+,4.6,,,12d,
+,3.4,,,2d,
+,2.9,,,8d,
+,3,,,23d,
+,3.4,,,30d+,
+,3.8,,,4d,
+,3.1,,,2d,
+,4.8,,,30d+,
+,3.5,,,10d,
+,3.5,,,30d+,
+,3.8,,,23d,
+,4.4,,,2d,
+,5,,,30d+,
+,5,,,18d,
+,3.8,,,1d,
+,3.8,,,9d,
+,3.8,,,8d,
+,3.5,,,11d,
+,4.2,,,4d,
+,3.9,,,2d,
+,4,,,2d,
+,3.3,,,6d,
+,3.8,,,2d,
+,4.8,,,3d,
+,5,,,30d+,
+,5,,,1d,
+,3.7,,,2d,
+,4.1,,,4d,
+,4,,,2d,
+,4,,,19d,
+,4.7,,,2d,
+,3.7,,,3d,
+,3.9,,,30d+,
+,3.5,,,26d,
+,3.9,,,4d,
+,3.2,,,2d,
+,3.6,,,3d,
+,3,,,4d,
+,4.1,,,17d,
+,3.2,,,4d,
+,3.4,,,1d,
+,3.1,,,4d,

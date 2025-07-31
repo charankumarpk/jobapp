@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User and Admin</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff6a62);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .container {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Buttons for user and admin roles -->
+        <button class="btn" onclick="setRoleAndRedirect('user')">USER</button>
+        <button class="btn" onclick="setRoleAndRedirect('admin')">ADMIN</button>
+    </div>
+    <script>
+        function setRoleAndRedirect(role) {
+            // Save the selected role in session storage
+            sessionStorage.setItem('role', role);
+    
+            // Redirect to the appropriate dashboard based on the role
+            if (role === 'user') {
+                window.location.href = "/index";  // User dashboard route
+            } else if (role === 'admin') {
+                window.location.href = "/index";  // Admin dashboard route
+            }
+        }
+    </script>
+    
+</body>
+</html>

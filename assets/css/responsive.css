@@ -1,0 +1,26 @@
+/* Normal desktop: 1200px - 1500px */
+@media (min-width: 1200px) and (max-width: 1500px) {
+    /* Add styles here */
+}
+
+/* Normal desktop: 992px - 1200px */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Add styles here */
+}
+
+/* Tablet: 768px - 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Add styles here */
+}
+
+/* Large Mobile: 480px - 767px */
+@media (min-width: 480px) and (max-width: 767px) {
+    .container {
+        width: 450px;
+    }
+}
+
+/* Small Mobile: Up to 767px */
+@media (max-width: 767px) {
+    /* Add styles for smaller screens here */
+}
