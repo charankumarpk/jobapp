@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'themify';
+    src: url('../fonts/themify.eot');
+    src: url('../fonts/themify.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/themify.woff') format('woff'),
+         url('../fonts/themify.ttf') format('truetype'),
+         url('../fonts/themify.svg#themify') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="ti-"], [class*=" ti-"] {
+    font-family: 'themify';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+
+    /* Enhanced Font Rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reusable Icon Sizing (Optional) */
+.ti-icon {
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Common icon styles */
+.ti-small { font-size: 0.75rem; }
+.ti-medium { font-size: 1.5rem; }
+.ti-large { font-size: 2rem; }
+.ti-xl { font-size: 3rem; }
+.ti-hover:hover { color: #007bff; }
+
+/* Icon Content */
+.ti-wand:before { content: "\e600"; }
+.ti-volume:before { content: "\e601"; }
+.ti-user:before { content: "\e602"; }
+.ti-unlock:before { content: "\e603"; }
+.ti-unlink:before { content: "\e604"; }
+.ti-trash:before { content: "\e605"; }
+.ti-thought:before { content: "\e606"; }
+.ti-target:before { content: "\e607"; }
+.ti-tag:before { content: "\e608"; }
+.ti-tablet:before { content: "\e609"; }
+.ti-star:before { content: "\e60a"; }
+.ti-spray:before { content: "\e60b"; }
+.ti-signal:before { content: "\e60c"; }
+.ti-shopping-cart:before { content: "\e60d"; }
+.ti-shopping-cart-full:before { content: "\e60e"; }
+.ti-settings:before { content: "\e60f"; }
+.ti-search:before { content: "\e610"; }
+.ti-zoom-in:before { content: "\e611"; }
+.ti-zoom-out:before { content: "\e612"; }
+.ti-cut:before { content: "\e613"; }
+.ti-ruler:before { content: "\e614"; }
+.ti-ruler-pencil:before { content: "\e615"; }
+.ti-ruler-alt:before { content: "\e616"; }
+.ti-bookmark:before { content: "\e617"; }
+.ti-bookmark-alt:before { content: "\e618"; }
+.ti-reload:before { content: "\e619"; }
+.ti-plus:before { content: "\e61a"; }
+.ti-pin:before { content: "\e61b"; }
+.ti-pencil:before { content: "\e61c"; }
+.ti-pencil-alt:before { content: "\e61d"; }
+.ti-paint-roller:before { content: "\e61e"; }
+.ti-paint-bucket:before { content: "\e61f"; }
+.ti-na:before { content: "\e620"; }
+.ti-mobile:before { content: "\e621"; }
+.ti-minus:before { content: "\e622"; }
+.ti-medall:before { content: "\e623"; }
+.ti-medall-alt:before { content: "\e624"; }
+.ti-marker:before { content: "\e625"; }
+.ti-marker-alt:before { content: "\e626"; }
+.ti-arrow-up:before { content: "\e627"; }
+.ti-arrow-right:before { content: "\e628"; }
+.ti-arrow-left:before { content: "\e629"; }
+.ti-arrow-down:before { content: "\e62a"; }
+
+/* Additional Icon Effects */
+.ti-rotate {
+    display: inline-block;
+    animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.ti-bounce {
+    display: inline-block;
+    animation: bounce 1s ease-in-out infinite;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.ti-shadow {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.ti-color-primary { color: #007bff; }
+.ti-color-danger { color: #dc3545; }
+.ti-color-success { color: #28a745; }
+.ti-color-warning { color: #ffc107; }
+.ti-color-info { color: #17a2b8; }
+
